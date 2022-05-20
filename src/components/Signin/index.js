@@ -16,7 +16,7 @@ const SignIn = () => {
         },
         validationSchema: Yup.object({
             email: Yup.string()
-                .email('Invalid email address')
+                .email('Invalid Email Address')
                 .required('The email is required'),
             password:Yup.string()
                 .required('The password is required')
