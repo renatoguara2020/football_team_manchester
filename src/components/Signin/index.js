@@ -5,10 +5,29 @@ import {useFormik} from 'formik';
 import *  as Yup  from 'yup';
 
 const SignIn = () => {
+
+    const formik = useFormik({
+
+        initialValues:{
+            email:'',
+            password: '',
+        },
+        validationSchema: Yup.object({
+        
+            email: Yup.string().email('Invalid email Address').required('This Email is Required!'),
+            password: '',
+
+        }),
+        onSubmit: (values) =>{
+
+
+        }
+    })
+
   return (
-    <div>
-      
-    </div>
+    <h1>
+      <h3>Login</h3>
+    </h1>
   )
 }
 
