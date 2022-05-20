@@ -13,7 +13,7 @@ const Footer = () => {
                 />
             </div>
             <div className="footer_descl">
-                Manchester city 2022.All rights reserved
+                Manchester City 2022.All rights reserved
             </div>
         </footer> 
     )

@@ -33,7 +33,7 @@ const SignIn = () => {
             <div className="signin_wrapper" style={{margin:'100px'}}>
 
                 <form onSubmit={formik.handleSubmit}>
-                    <h2>Please login</h2>
+                    <h2>Please Login</h2>
                     <input
                         name="email"
                         placeholder="Enter your Email"
