@@ -4,12 +4,13 @@ import CityLogo from '../Utils/Button';
 import { Link } from 'react-router-dom';
 import {Fragment} from 'react';
 import {firebase} from '../../firebase';
+import {showSuccessToast, showErrorToast} from '../Utils/tools'
 
 const Header = ({user}) => {
 
     const logoutHandler = ()=>{
 
-   firebase.auth().signOut().then(()=>{alert('Signed Out')}).catch(error=>{alert("error")})
+   firebase.auth().signOut().then(()=>{showSuccessToast('Good Bye!!!!')}).catch(error=>{alert("error")})
     }
     return(
         <AppBar
