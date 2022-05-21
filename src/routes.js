@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Routes = (props) => {
 
-  console.log(props)
+  //console.log(props)
   return (
     <BrowserRouter> 
     <Header user={props.user}/>
