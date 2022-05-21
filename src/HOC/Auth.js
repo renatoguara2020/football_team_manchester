@@ -15,7 +15,7 @@ const AuthGuard = (Component) => {
                return <Component/>
 
           }else{
-            return <Redirect to='/Home'/>
+            return <Redirect to='/sign_in'/>
 
           }
 
