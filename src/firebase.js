@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyA-LtBKeNdygPse8z3cm5gD-65JH8zs71Y",
     authDomain: "manchester-city-977ae.firebaseapp.com",
@@ -10,12 +11,11 @@ const firebaseConfig = {
     appId: "1:1024652574329:web:d6e43ade3ab08c880c9ea8",
     measurementId: "G-ED48Z5V5NN"
   };
-  
+
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-  export{
 
+export {
     firebase
-  }
-  
+}

@@ -1,11 +1,12 @@
 import React , { useState } from 'react';
+import { firebase } from '../../firebase';
 
 import { CircularProgress } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
-import {firebase} from '../../firebase';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { showErrorToast, showSuccessToast  } from '../Utils/tools';
 
 const SignIn = (props) => {
     const [loading, setLoading] = useState(false)
@@ -17,10 +18,10 @@ const SignIn = (props) => {
         },
         validationSchema: Yup.object({
             email: Yup.string()
-                .email('Invalid Email Address')
+                .email('Invalid email address')
                 .required('The email is required'),
             password:Yup.string()
-                .required('The password is required')
+                .required('The email is required')
         }),
         onSubmit: (values) =>{
             setLoading(true)
@@ -28,28 +29,30 @@ const SignIn = (props) => {
         }
     })
 
-  const submitForm =(values)=>{
+    const submitForm = (values) => {
+        firebase.auth()
+        .signInWithEmailAndPassword(
+            values.email,
+            values.password
+        ).then(()=>{
+            showSuccessToast('Welcome back !!')
+            props.history.push('/dashboard');
+        }).catch(error=>{
+            setLoading(false);
+            showErrorToast(error.message)
+        })
+    }
 
-    firebase.auth().signInWithEmailAndPassword(values.email, values.password).then(()=>{
 
-     props.history.push()
-
-    }).catch((error)=>{
-
-   setLoading(false)
-
-
-    })
-  }
     return(
         <div className="container">
             <div className="signin_wrapper" style={{margin:'100px'}}>
 
                 <form onSubmit={formik.handleSubmit}>
-                    <h2>Please Login</h2>
+                    <h2>Please login</h2>
                     <input
                         name="email"
-                        placeholder="Enter your Email"
+                        placeholder="Email"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.email}
@@ -62,8 +65,8 @@ const SignIn = (props) => {
 
 
                     <input
+                        placeholder="enter your password"
                         name="password"
-                        placeholder="Enter your Password"
                         type="password"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
@@ -79,7 +82,7 @@ const SignIn = (props) => {
                         {loading ?
                             <CircularProgress color="secondary" className="progress"/>
                         :
-                            <button type="submit">Login</button>
+                            <button type="submit">Log in</button>
                         }
 
                  

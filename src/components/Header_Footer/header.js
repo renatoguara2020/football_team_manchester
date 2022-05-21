@@ -2,8 +2,15 @@ import React from 'react';
 import { AppBar, Toolbar, Button } from '@material-ui/core'
 import CityLogo from '../Utils/Button';
 import { Link } from 'react-router-dom';
+import {Fragment} from 'react';
+import {firebase} from '../../firebase';
 
-const Header = () => {
+const Header = ({user}) => {
+
+    const logoutHandler = ()=>{
+
+   firebase.auth().signOut().then(()=>{alert('Signed Out')}).catch(error=>{alert("error")})
+    }
     return(
         <AppBar
             position="fixed"
@@ -28,10 +35,19 @@ const Header = () => {
                     <Button color="inherit">Matches</Button>
                 </Link>
 
+
+                { user  ?
+                <Fragment>    
                 <Link to="/dashboard">
                     <Button color="inherit">Dashboard</Button>
                 </Link>
 
+
+                 <Button color="inherit" onClick={()=>logoutHandler()}>Logout</Button>
+           
+             </Fragment>
+                :null
+            }
             </Toolbar>
         </AppBar> 
     )
