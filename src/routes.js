@@ -5,6 +5,8 @@ import Header from './components/Header_Footer/header';
 import Footer from './components/Header_Footer/footer';
 import SignIn from './components/Signin';
 import Home from './components/Home/index';
+import Dashboard from './components/Admin/dashboard';
+import AuthGuard from './HOC/Auth';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Routes = (props) => {
@@ -14,6 +16,7 @@ const Routes = (props) => {
     <BrowserRouter> 
     <Header user={props.user}/>
       <Switch> 
+        <Route path="/dashboard" exact component ={AuthGuard(Dashboard)}/>
         <Route path="/sign_in" exact component={SignIn} />
         <Route path= "/" exact component={Home} />
       </Switch>
