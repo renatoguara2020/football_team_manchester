@@ -1,12 +1,12 @@
 import React from 'react'
+import AdminNav from '../components/Nav/AdminNav';
 
 const AdminLayout = (props) => {
   return (
     <div className="admin_container">
 
             <div className="admin_left_nav">
-              <br></br>
-               Nav Bar
+              <AdminNav />
             </div>
             <div className="admin_right">
               <h2>{props.title}</h2>
