@@ -1,10 +1,13 @@
 import React from 'react'
+import Featured from './featured'
 
 
 const  Home = () => {
   return (
-    <h1>Home</h1>
+    <div className="bck_blue">
+       <Featured />
+    </div>
   )
 }
 
-export default  Home
+export default  Home;
