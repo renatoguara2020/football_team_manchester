@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-import {cityDb} from './temp/m-city-export'
+//import {cityDb} from './temp/m-city-export'
 
 
 const firebaseConfig = {
@@ -25,25 +25,25 @@ const positionsCollection = DB.collection('positions');
 const promotionsCollection = DB.collection('promotions');
 const teamsCollection = DB.collection('teams');
 
-cityDb.matches.forEach(item => {
-  matchesCollection.add(item)
-});
+// cityDb.matches.forEach(item => {
+//   matchesCollection.add(item)
+// });
 
-cityDb.players.forEach(item => {
-  playersCollection.add(item)
-});
+// cityDb.players.forEach(item => {
+//   playersCollection.add(item)
+// });
 
-cityDb.positions.forEach(item => {
-  positionsCollection.add(item)
-});
+// cityDb.positions.forEach(item => {
+//   positionsCollection.add(item)
+// });
 
-cityDb.promotions.forEach(item => {
-  promotionsCollection.add(item)
-});
+// cityDb.promotions.forEach(item => {
+//   promotionsCollection.add(item)
+// });
 
-cityDb.teams.forEach(item => {
-  teamsCollection.add(item)
-});
+// cityDb.teams.forEach(item => {
+//   teamsCollection.add(item)
+// });
 
 
 
