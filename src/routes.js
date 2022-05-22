@@ -27,4 +27,4 @@ const Routes = (props) => {
   )
 }
 
-export default Routes
+export default Routes;
