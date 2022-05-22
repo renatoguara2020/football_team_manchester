@@ -1,13 +1,35 @@
-import React,{ useState, Fragment } from 'react';
+import React,{ useState } from 'react';
 import { easePolyOut } from 'd3-ease';
 import  { Animate } from 'react-move';
 
 const Test = () => {
     const [show,setShow] = useState(true);
-    const [bck,setBck] = useState('#ffffff')
+    const [bck,setBck] = useState('#ffffff');
 
     return(
-        <Fragment>
+        <>
+            <button
+                onClick={()=>{
+                    setBck('#f44336')
+                }}
+            >
+                Update
+            </button>
+            <button
+                onClick={()=>{
+                    setShow(false)
+                }}
+            >
+                Remove
+            </button>
+            <button
+                onClick={()=>{
+                    setShow(true)
+                }}
+            >
+                show
+            </button>
+
             <Animate
                 show={show}
                 start={{
@@ -28,11 +50,41 @@ const Test = () => {
                     }
                 }}
                 update={{
-
+                    backgroundColor:bck,
+                    opacity:[0.5],
+                    timing:{
+                        duration:2000,
+                        ease:easePolyOut
+                    },
+                    events:{
+                        start:()=>{
+                            console.log('STARTED')
+                        },
+                        end:()=>{
+                            console.log('ENDED')
+                        },
+                        interrupt:()=>{
+                            //////
+                        }
+                    }
                 }}
-                leave={{
-                    
-                }}
+                leave={[
+                    {
+                        width:[1000],
+                        timing:{
+                            duration:500,
+                            ease:easePolyOut
+                        }
+                    },
+                    {
+                        opacity:[0],
+                        timing:{
+                            delay:2000,
+                            duration:3000,
+                            ease:easePolyOut
+                        } 
+                    }
+                ]}
             >
                 { ({ width,height,opacity,backgroundColor })=> (
                     <div
@@ -47,7 +99,7 @@ const Test = () => {
                     </div>
                 )}
             </Animate> 
-        </Fragment>
+        </>
     )
 }
 
